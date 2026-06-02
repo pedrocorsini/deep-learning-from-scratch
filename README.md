@@ -11,8 +11,11 @@ This project explores fundamental deep learning concepts through practical examp
 ```
 deep-learning-from-scratch/
 ├── examples/
-│   ├── arrays.py                          (NumPy operations and activation functions)
-│   └── derivatives.py                     (Numerical differentiation)
+│   ├── arrays.py                               (NumPy operations and activation functions)
+│   ├── derivatives.py                          (Numerical differentiation basics)
+│   ├── nested_function.py                      (Chain rule for nested functions)
+│   ├── multiple_inputs.py                      (Functions with multiple inputs and matrix operations)
+│   └── matrix_function_backward_sum.py         (Backpropagation through matrix operations with sum)
 ├── LICENSE
 └── README.md
 ```
@@ -32,14 +35,27 @@ python examples/arrays.py
 
 # Numerical derivatives
 python examples/derivatives.py
+
+# Chain rule for nested functions
+python examples/nested_function.py
+
+# Multiple inputs and matrix operations
+python examples/multiple_inputs.py
+
+# Backpropagation with matrix operations
+python examples/matrix_function_backward_sum.py
 ```
 
 ## Topics Covered
 
 - Array operations with NumPy
-- Activation functions (ReLU, Leaky ReLU)
-- Derivatives and numerical differentiation
-- Foundational neural network concepts
+- Activation functions (ReLU, Leaky ReLU, Sigmoid)
+- Numerical differentiation and derivatives
+- Chain rule for nested functions
+- Functions with multiple inputs
+- Matrix operations and linear transformations
+- Backpropagation through complex functions
+- Gradient computation with respect to matrix inputs
 
 ## License
 
