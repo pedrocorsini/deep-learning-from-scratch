@@ -50,3 +50,55 @@ def matmul_backward_first(X: np.ndarray, W: np.ndarray) -> np.ndarray:
     dNdX = np.transpose(W, (1, 0))
 
     return dNdX
+
+def matrix_forward_extra(X: np.ndarray, W: np.ndarray, sigma: Array_Function) -> np.ndarray:
+    # Computes the forward pass of a fucntion involving matrix multiplication, one extra function
+    assert X.shape[1] == W.shape[0]
+
+    # Matrix multiplication
+    N = np.dot(X, W)
+
+    # Feeding the output of the matrix multiplication through sigma
+    S = sigma(N)
+
+    return S
+
+def matrix_function_backward_1(X: np.ndarray, W: np.ndarray, sigma: Array_Function) -> np.ndarray:
+    '''
+    Computes the derivative of our matrix function with respect to
+    the first element.
+    '''
+    assert X.shape[1] == W.shape[0]
+
+    # matrix multiplication
+    N = np.dot(X, W)
+
+    # feeding the output of the matrix multiplication through sigma
+    S = sigma(N)
+
+    # backward calculation
+    dSdN = deriv(sigma, N)
+
+    # dNdX
+    dNdX = np.transpose(W, (1, 0))
+
+    # multiply them together; since dNdX is 1x1 here, order doesn't matter
+    return np.dot(dSdN, dNdX)
+
+def matrix_function_forward_sum(X: np.ndarray, W: np.ndarray, sigma: Array_Function) -> float:
+    '''
+    Computing the result of the forward pass of this function with
+    input ndarrays X and W and function sigma.
+    '''
+    assert X.shape[1] == W.shape[0]
+
+    # matrix multiplication
+    N = np.dot(X, W)
+
+    # feeding the output of the matrix multiplication through sigma
+    S = sigma(N)
+
+    # sum all the elements
+    L = np.sum(S)
+    
+    return L
